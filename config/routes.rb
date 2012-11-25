@@ -1,5 +1,13 @@
 OauthProvider::Application.routes.draw do
-  resources :users
+  resources :access_grants
+
+  resources :access_tokens
+
+  resources :users do
+    member do
+      post 'authenticate'
+    end
+  end
 
   resources :applications
   
