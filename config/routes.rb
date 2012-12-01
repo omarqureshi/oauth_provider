@@ -1,7 +1,11 @@
 OauthProvider::Application.routes.draw do
   resources :access_grants
 
-  resources :access_tokens
+  resources :access_tokens do
+    collection do
+      get 'last_authorized'
+    end
+  end
 
   resources :users do
     member do

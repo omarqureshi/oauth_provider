@@ -5,7 +5,17 @@ class AccessTokensController < ApplicationController
     respond_with AccessToken.all
   end
 
-  def last
+  def show
+    respond_with AccessToken.find(params[:id])
+  end
+
+  def last_authorized
+    token = AccessToken.last_authorized_token_for(params[:application_id], params[:resource_owner_id])
+    if token
+      render :json => token
+    else
+      render :text => "404 Not Found", :status => 404
+    end
   end
   
 end
