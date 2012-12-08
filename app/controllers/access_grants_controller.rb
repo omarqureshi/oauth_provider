@@ -10,5 +10,9 @@ class AccessGrantsController < ApplicationController
   def create
     respond_with AccessGrant.create(params[:access_grant])
   end
+
+  def update
+    respond_with AccessGrant.update_attributes(params[:access_grant])
+  end
   
 end

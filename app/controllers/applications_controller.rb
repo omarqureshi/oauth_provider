@@ -4,6 +4,7 @@ class ApplicationsController < ApplicationController
   def index
     applications = Application
     applications = applications.where(:uid => params[:uid]) if params[:uid].present?
+    applications = applications.where(:secret => params[:secret]) if params[:secret].present?
     respond_with applications.all
   end
 
