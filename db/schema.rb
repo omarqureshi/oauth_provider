@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20121121094854) do
+ActiveRecord::Schema.define(:version => 20121209232105) do
 
   create_table "access_grants", :force => true do |t|
     t.integer  "resource_owner_id", :null => false
@@ -58,6 +58,8 @@ ActiveRecord::Schema.define(:version => 20121121094854) do
     t.boolean  "admin",           :default => false, :null => false
     t.datetime "created_at",                         :null => false
     t.datetime "updated_at",                         :null => false
+    t.string   "uid"
+    t.string   "provider"
   end
 
 end
